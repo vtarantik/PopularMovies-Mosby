@@ -22,8 +22,8 @@ public class ApiInteractor implements IApiInteractor{
     }
 
     @Override
-    public Observable<MovieResponse> getMovies(int page) {
-        return this.apiDescription.getMovies(BuildConfig.API_KEY,page);
+    public Observable<MovieResponse> getMovies() {
+        return this.apiDescription.getMovies(BuildConfig.API_KEY);
     }
 
 }

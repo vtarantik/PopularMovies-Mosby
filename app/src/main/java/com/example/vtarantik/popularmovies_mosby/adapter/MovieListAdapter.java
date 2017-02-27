@@ -69,7 +69,7 @@ public class MovieListAdapter extends SupportAnnotatedAdapter implements MovieLi
 
 	@Override
 	public void bindViewHolder(MovieListAdapterHolders.VIEWTYPE_MOVIEViewHolder vh, int position) {
-		vh.rating.setText(mMovies.get(position).getTitle());
+		vh.title.setText(mMovies.get(position).getTitle());
 		vh.rating.setText(mMovies.get(position).getRating()+MAX_RATING);
 
 		Picasso.with(mContext)

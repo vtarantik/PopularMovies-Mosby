@@ -16,8 +16,7 @@ public interface ApiDescription {
 
 	@GET("3/movie/popular")
 	Observable<MovieResponse> getMovies(
-			@Query("api_key") String apiKey,
-			@Query("page") int pageIndex
+			@Query("api_key") String apiKey
 	);
 
 }

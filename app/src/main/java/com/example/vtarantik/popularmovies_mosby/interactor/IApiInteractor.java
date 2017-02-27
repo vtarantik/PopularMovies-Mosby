@@ -10,6 +10,6 @@ import rx.Observable;
  */
 
 public interface IApiInteractor {
-    public Observable<MovieResponse> getMovies(int page);
+    public Observable<MovieResponse> getMovies();
 
 }

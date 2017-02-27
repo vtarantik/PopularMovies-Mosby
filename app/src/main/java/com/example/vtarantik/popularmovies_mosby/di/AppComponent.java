@@ -1,6 +1,8 @@
 package com.example.vtarantik.popularmovies_mosby.di;
 
 
+import com.example.vtarantik.popularmovies_mosby.presenter.MovieListPresenter;
+
 import javax.inject.Singleton;
 
 import dagger.Component;
@@ -15,4 +17,5 @@ import dagger.Component;
 @Singleton
 @Component(modules = {AppModule.class})
 public interface AppComponent {
+    void inject(MovieListPresenter movieListPresenter);
 }

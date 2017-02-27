@@ -36,7 +36,13 @@ public class MovieListFragment extends MvpLceViewStateFragment<SwipeRefreshLayou
 	private MovieListAdapter mMovieListAdapter;
 
 
-	@Nullable
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+    }
+
+    @Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		return inflater.inflate(R.layout.fragment_movie_list,container,false);
@@ -58,10 +64,15 @@ public class MovieListFragment extends MvpLceViewStateFragment<SwipeRefreshLayou
 		loadData(false);
 	}
 
+	@Override
+	protected String getErrorMessage(Throwable e, boolean pullToRefresh) {
+		return "Error while loading the list of movies";
+	}
+
 
 	@Override
 	public void onRefresh() {
-
+		loadData(true);
 	}
 
 
@@ -73,31 +84,26 @@ public class MovieListFragment extends MvpLceViewStateFragment<SwipeRefreshLayou
 
 	@Override
 	public List<Movie> getData() {
-		return null;
-	}
-
-
-	@Override
-	protected String getErrorMessage(Throwable e, boolean pullToRefresh) {
-		return null;
+		return mMovieListAdapter.getMovies();
 	}
 
 
 	@Override
 	public MovieListPresenter createPresenter() {
-		return null;
+		return new MovieListPresenter();
 	}
 
 
 	@Override
 	public void setData(List<Movie> data) {
-
+		mMovieListAdapter.setMovies(data);
+		mMovieListAdapter.notifyDataSetChanged();
 	}
 
 
 	@Override
 	public void loadData(boolean pullToRefresh) {
-
+		presenter.getPopularMoviesList(pullToRefresh);
 	}
 
 }

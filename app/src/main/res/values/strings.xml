@@ -1,0 +1,5 @@
+<resources>
+	<string name="app_name">PopularMovies-Mosby</string>
+	<string name="movie_detail_release_date">Release date:</string>
+	<string name="movie_detail_rating">Rating:</string>
+</resources>

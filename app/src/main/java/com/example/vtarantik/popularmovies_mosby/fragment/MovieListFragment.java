@@ -1,8 +1,10 @@
 package com.example.vtarantik.popularmovies_mosby.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,9 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.vtarantik.popularmovies_mosby.R;
+import com.example.vtarantik.popularmovies_mosby.activity.MovieDetailActivity;
 import com.example.vtarantik.popularmovies_mosby.adapter.MovieListAdapter;
 import com.example.vtarantik.popularmovies_mosby.entity.Movie;
 import com.example.vtarantik.popularmovies_mosby.presenter.MovieListPresenter;
+import com.example.vtarantik.popularmovies_mosby.utility.ItemClickSupport;
 import com.example.vtarantik.popularmovies_mosby.view.IMovieListView;
 import com.hannesdorfmann.mosby.mvp.viewstate.lce.LceViewState;
 import com.hannesdorfmann.mosby.mvp.viewstate.lce.MvpLceViewStateFragment;
@@ -60,7 +64,14 @@ public class MovieListFragment extends MvpLceViewStateFragment<SwipeRefreshLayou
 		// Setup recycler view
 		mMovieListAdapter = new MovieListAdapter(getActivity());
 		mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+		mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
 		mRecyclerView.setAdapter(mMovieListAdapter);
+		ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener((recyclerView, position, v) -> {
+			Intent intent = MovieDetailActivity.newIntent(getActivity(),mMovieListAdapter.getItem(position));
+			startActivity(intent);
+
+		});
+
 		loadData(false);
 	}
 
@@ -98,6 +109,20 @@ public class MovieListFragment extends MvpLceViewStateFragment<SwipeRefreshLayou
 	public void setData(List<Movie> data) {
 		mMovieListAdapter.setMovies(data);
 		mMovieListAdapter.notifyDataSetChanged();
+	}
+
+
+	@Override
+	public void showContent() {
+		super.showContent();
+		contentView.setRefreshing(false);
+	}
+
+
+	@Override
+	public void showError(Throwable e, boolean pullToRefresh) {
+		super.showError(e, pullToRefresh);
+		contentView.setRefreshing(false);
 	}
 
 

@@ -5,10 +5,10 @@
 	android:id="@+id/activity_main"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context="com.example.vtarantik.popularmovies_mosby.activity.MainActivity">
+	tools:context="com.example.vtarantik.popularmovies_mosby.activity.MovieDetailActivity">
 
 	<FrameLayout
-		android:id="@+id/activity_main_container"
+		android:id="@+id/activity_detail_container"
 		android:layout_width="match_parent" android:layout_height="match_parent">
 
 	</FrameLayout>

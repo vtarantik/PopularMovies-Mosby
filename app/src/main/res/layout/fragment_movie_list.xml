@@ -6,8 +6,8 @@
     tools:context="com.example.vtarantik.popularmovies_mosby.activity.MainActivity">
 
 
-    <include layout="@layout/loading_view" />
-    <include layout="@layout/error_view" />
+    <include layout="@layout/loading_view" android:visibility="gone" />
+    <include layout="@layout/error_view" android:visibility="gone"/>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/contentView"

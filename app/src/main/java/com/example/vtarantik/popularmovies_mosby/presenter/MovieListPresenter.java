@@ -26,10 +26,11 @@ public class MovieListPresenter extends MvpBasePresenter<IMovieListView> {
         super();
         PopularMoviesApp.getAppComponent().inject(this);
 
-
     }
 
+
     public void getPopularMoviesList(final boolean pullToRefresh) {
+        getView().showLoading(pullToRefresh);
 
         apiInteractor.getMovies()
                 .subscribeOn(Schedulers.newThread())
@@ -40,6 +41,7 @@ public class MovieListPresenter extends MvpBasePresenter<IMovieListView> {
                         getView().setData(movieResponse.getMovies());
                         getView().showContent();
                     }
+
 
                 }, throwable -> {
                     getView().showError(throwable,pullToRefresh);

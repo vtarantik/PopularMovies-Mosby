@@ -3,13 +3,14 @@
 	android:layout_width="match_parent"
 	android:layout_height="?android:attr/listPreferredItemHeight"
 	android:orientation="horizontal"
-	android:paddingBottom="@dimen/global_spacing_half"
-	android:paddingTop="@dimen/global_spacing_half">
+	android:layout_marginTop="@dimen/global_spacing_single"
+	android:layout_marginBottom="@dimen/global_spacing_single">
 
 	<ImageView
 		android:id="@+id/list_item_movie_image"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
+		android:layout_gravity="center"
 		android:padding="5dp"/>
 
 	<LinearLayout
@@ -30,8 +31,7 @@
 		<TextView
 			android:id="@+id/list_item_textview_movie_rating"
 			android:layout_width="wrap_content"
-			android:layout_height="0dp"
-			android:layout_weight="1"
+			android:layout_height="wrap_content"
 			android:gravity="center_vertical"
 			android:textSize="@dimen/global_text_size_14"/>
 	</LinearLayout>

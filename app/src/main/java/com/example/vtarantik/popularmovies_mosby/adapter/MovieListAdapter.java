@@ -78,4 +78,8 @@ public class MovieListAdapter extends SupportAnnotatedAdapter implements MovieLi
 				.into(vh.poster);
 	}
 
+	public Movie getItem(int position){
+		return mMovies.get(position);
+	}
+
 }

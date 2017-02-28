@@ -1,80 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context="com.example.vtarantik.popularmovies_mosby.activity.MovieDetailActivity">
 
-    <ImageView
-        android:id="@+id/moviedetailfragment_imageview"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
-        <View android:background="@color/ltGrey"
-            android:layout_width = "match_parent"
-            android:layout_height="1dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/global_spacing_double">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="@string/movie_detail_release_date"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/moviedetailfragment_textview_release_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"/>
-        </LinearLayout>
+	<include
+		android:visibility="gone" layout="@layout/loading_view" />
+	<include
+		android:visibility="gone" layout="@layout/error_view" />
 
-        <View android:background="@color/ltGrey"
-            android:layout_width = "match_parent"
-            android:layout_height="1dp"/>
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/contentView"
+			android:layout_width="match_parent" android:layout_height="match_parent"
+			android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/global_spacing_double">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="@string/movie_detail_rating"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/moviedetailfragment_textview_rating"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"/>
-        </LinearLayout>
+			<ImageView
+				android:id="@+id/moviedetailfragment_imageview"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1" />
 
-        <View android:background="@color/ltGrey"
-            android:layout_width = "match_parent"
-            android:layout_height="1dp"/>
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:orientation="vertical">
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="1dp"
+					android:background="@color/ltGrey" />
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:padding="@dimen/global_spacing_double">
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:textStyle="bold"
+						android:text="@string/movie_detail_release_date"
+						android:textColor="@color/black" />
+					<TextView
+						android:id="@+id/moviedetailfragment_textview_release_date"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:textColor="@color/black" />
+				</LinearLayout>
 
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/moviedetailfragment_textview_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:padding="@dimen/global_spacing_double"/>
-        </ScrollView>
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="1dp"
+					android:background="@color/ltGrey" />
 
-        <View android:background="@color/ltGrey"
-            android:layout_width = "match_parent"
-            android:layout_height="1dp"/>
-    </LinearLayout>
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:padding="@dimen/global_spacing_double">
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:textStyle="bold"
+						android:text="@string/movie_detail_rating"
+						android:textColor="@color/black" />
+					<TextView
+						android:id="@+id/moviedetailfragment_textview_rating"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:textColor="@color/black" />
+				</LinearLayout>
 
-</LinearLayout>
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="1dp"
+					android:background="@color/ltGrey" />
+
+				<ScrollView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content">
+					<TextView
+						android:id="@+id/moviedetailfragment_textview_description"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:textColor="@color/black"
+						android:padding="@dimen/global_spacing_double" />
+				</ScrollView>
+
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="1dp"
+					android:background="@color/ltGrey" />
+			</LinearLayout>
+
+		</LinearLayout>
+
+</FrameLayout>

@@ -1,5 +1,7 @@
 package com.example.vtarantik.popularmovies_mosby.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.vtarantik.popularmovies_mosby.R;
+import com.example.vtarantik.popularmovies_mosby.entity.Movie;
 
 
 /**
@@ -14,15 +17,23 @@ import com.example.vtarantik.popularmovies_mosby.R;
  */
 
 public class MovieDetailActivity extends AppCompatActivity {
+	public static final String EXTRA_MOVIE = "movie";
+
+	public static Intent newIntent(Context context, Movie movie){
+		Intent intent = new Intent(context,MovieDetailActivity.class);
+		intent.putExtra(EXTRA_MOVIE,movie);
+
+		return intent;
+	}
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_detail);
 
 		if(savedInstanceState == null){
-			replaceFragment(com.example.vtarantik.popularmovies_mosby.fragment.MovieListFragment.class.getName());
+			replaceFragment(com.example.vtarantik.popularmovies_mosby.fragment.MovieDetailFragment.class.getName());
 		}
 	}
 
@@ -32,6 +43,6 @@ public class MovieDetailActivity extends AppCompatActivity {
 		if (fragment == null) {
 			fragment = Fragment.instantiate(this, fragmentName);
 		}
-		fm.beginTransaction().replace(R.id.activity_main_container, fragment, fragmentName).commit();
+		fm.beginTransaction().replace(R.id.activity_detail_container, fragment, fragmentName).commit();
 	}
 }

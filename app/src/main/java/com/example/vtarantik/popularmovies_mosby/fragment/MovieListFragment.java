@@ -71,9 +71,8 @@ public class MovieListFragment extends MvpLceViewStateFragment<SwipeRefreshLayou
 			startActivity(intent);
 
 		});
-
-		loadData(false);
 	}
+
 
 	@Override
 	protected String getErrorMessage(Throwable e, boolean pullToRefresh) {
@@ -89,6 +88,7 @@ public class MovieListFragment extends MvpLceViewStateFragment<SwipeRefreshLayou
 
 	@Override
 	public LceViewState<List<Movie>, IMovieListView> createViewState() {
+		setRetainInstance(true);
 		return new RetainingLceViewState<>();
 	}
 
